@@ -45,6 +45,7 @@ class SbisWebsite:
         partners = self.browser.find_elements(By.CLASS_NAME, "sbisru-Contacts-List__name")
         return [name.text for name in partners]
 
+    # Сверяем списки партнёров
     def check_partner_changes(self, original_partners):
         current_partners = self.get_current_partners()
         return current_partners != original_partners
@@ -71,7 +72,7 @@ def main():
     region = sbis.get_element_text(sbis.region_css)
     print("Текущий регион:", region)
 
-#     Получаем и выводим список партнёров
+    # Получаем и выводим список партнёров
     original_partners = sbis.get_current_partners()
     print("Список партнёров:", original_partners)
 
